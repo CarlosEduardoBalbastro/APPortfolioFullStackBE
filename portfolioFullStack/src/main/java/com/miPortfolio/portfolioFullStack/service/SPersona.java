@@ -9,9 +9,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
+//https://github.com/bezkoder/angular-13-login-registration-example
+//https://github.com/bezkoder/spring-boot-spring-security-jwt-authentication
+//https://www.bezkoder.com/angular-15-jwt-auth/
+
 @Service
 @Transactional
-public class SPersona {
+public class SPersona implements IPersonaService {
     
     @Autowired
     private RPersona personRepository;
