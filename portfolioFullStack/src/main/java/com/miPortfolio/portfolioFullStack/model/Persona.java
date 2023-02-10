@@ -6,9 +6,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Lob;
-import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
-import java.util.Date;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -18,14 +16,14 @@ public class Persona {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    
     private int id;
+    
     private String nombre;
     private String apellido;
     private String domicilio;
     
-    @Temporal(TemporalType.DATE)
-    private Date fechaNac;
+  
+    private String fechaNac;
     
     private String correo;
     
@@ -40,7 +38,7 @@ public class Persona {
     public Persona() {
     }
 
-    public Persona(String nombre, String apellido, String domicilio, Date fechaNac, String correo, String sobreMi, String imagen, int edad, String empresa, String ocupacion, String area) {
+    public Persona(String nombre, String apellido, String domicilio, String fechaNac, String correo, String sobreMi, String imagen, int edad, String empresa, String ocupacion, String area) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.domicilio = domicilio;
@@ -86,11 +84,11 @@ public class Persona {
         this.domicilio = domicilio;
     }
 
-    public Date getFechaNac() {
+    public String getFechaNac() {
         return fechaNac;
     }
 
-    public void setFechaNac(Date fechaNac) {
+    public void setFechaNac(String fechaNac) {
         this.fechaNac = fechaNac;
     }
 
