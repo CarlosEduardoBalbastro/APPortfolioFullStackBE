@@ -49,11 +49,16 @@ public class CPersona {
                                @RequestParam ("nombre") String nuevoNombre,
                                @RequestParam ("apellido") String nuevoApellido,
                                @RequestParam ("domicilio") String nuevoDomicilio,
+                               @RequestParam ("nacionalidad") String nuevoNacionalidad,
+                               @RequestParam ("lugarNacimiento") String nuevoLugarNacimiento,
+                               @RequestParam ("lugarResidencia") String nuevoLugarResidencia,
                                @RequestParam ("fechaNac") String nuevoFechaNac,
                                @RequestParam ("correo") String nuevoCorreo,
                                @RequestParam ("sobreMi") String nuevoSobreMi,
                                @RequestParam ("imagen") String nuevoImagen,
                                @RequestParam ("edad") int nuevoEdad,
+                               @RequestParam ("hijos") String nuevoHijos,
+                               @RequestParam ("estadoCivil") String nuevoEstadoCivil,
                                @RequestParam ("empresa") String nuevoEmpresa,
                                @RequestParam ("ocupacion") String nuevoOcupacion,
                                @RequestParam ("area") String nuevoArea){
@@ -63,11 +68,16 @@ public class CPersona {
         perso.setNombre(nuevoNombre);
         perso.setApellido(nuevoApellido);
         perso.setDomicilio(nuevoDomicilio);
+        perso.setNacionalidad(nuevoNacionalidad);
+        perso.setlugarNacimiento(nuevoLugarNacimiento);
+        perso.setlugarResidencia(nuevoLugarResidencia);
         perso.setFechaNac(nuevoFechaNac);
         perso.setCorreo(nuevoCorreo);
         perso.setSobreMi(nuevoSobreMi);
         perso.setImagen(nuevoImagen);
         perso.setEdad(nuevoEdad);
+        perso.setHijos(nuevoHijos);
+        perso.setEstadoCivil(nuevoEstadoCivil);
         perso.setEmpresa(nuevoEmpresa);
         perso.setOcupacion(nuevoOcupacion);
         perso.setArea(nuevoArea);
