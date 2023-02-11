@@ -20,21 +20,25 @@ public class SPersona implements IPersonaService {
     @Autowired
     private RPersona personRepository;
     
+    @Override
     public List<Persona> getPersonas(){
         List<Persona> listaPersonas = personRepository.findAll();
         return listaPersonas;
     }
     
     
+    @Override
     public void savePersona(Persona perso){
         personRepository.save(perso);
     }
     
     
+    @Override
     public void deletePersona(int id){
         personRepository.deleteById(id);
     }
     
+    @Override
     public Persona findPersona(int id){
         Persona perso = personRepository.findById(id).orElse(null);
         return perso;

@@ -21,7 +21,9 @@ public class Persona {
     private String nombre;
     private String apellido;
     private String domicilio;
-    
+    private String nacionalidad;
+    private String lugarNacimiento;
+    private String lugarResidencia;
   
     private String fechaNac;
     
@@ -31,6 +33,8 @@ public class Persona {
     private String sobreMi;
     private String imagen;
     private int edad;
+    private String hijos;
+    private String estadoCivil;
     private String empresa;
     private String ocupacion;
     private String area;
@@ -38,19 +42,27 @@ public class Persona {
     public Persona() {
     }
 
-    public Persona(String nombre, String apellido, String domicilio, String fechaNac, String correo, String sobreMi, String imagen, int edad, String empresa, String ocupacion, String area) {
+    public Persona(int id, String nombre, String apellido, String domicilio, String nacionalidad, String lugarNacimiento, String lugarResidencia, String fechaNac, String correo, String sobreMi, String imagen, int edad, String hijos, String estadoCivil, String empresa, String ocupacion, String area) {
+        this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
         this.domicilio = domicilio;
+        this.nacionalidad = nacionalidad;
+        this.lugarNacimiento = lugarNacimiento;
+        this.lugarResidencia = lugarResidencia;
         this.fechaNac = fechaNac;
         this.correo = correo;
         this.sobreMi = sobreMi;
         this.imagen = imagen;
         this.edad = edad;
+        this.hijos = hijos;
+        this.estadoCivil = estadoCivil;
         this.empresa = empresa;
         this.ocupacion = ocupacion;
         this.area = area;
     }
+
+
 
     public int getId() {
         return id;
@@ -83,6 +95,34 @@ public class Persona {
     public void setDomicilio(String domicilio) {
         this.domicilio = domicilio;
     }
+    
+        public String getNacionalidad() {
+        return nacionalidad;
+    }
+
+    public void setNacionalidad(String nacionalidad) {
+        this.nacionalidad = nacionalidad;
+    }
+    
+          public String getlugarNacimiento() {
+        return lugarNacimiento;
+    }
+
+    public void setlugarNacimiento(String lugarNacimiento) {
+        this.lugarNacimiento= lugarNacimiento;
+    }
+    
+    
+            public String getlugarResidencia() {
+        return lugarNacimiento;
+    }
+
+    public void setlugarResidencia(String lugarResidencia) {
+        this.lugarResidencia= lugarResidencia;
+    }
+    
+    
+    
 
     public String getFechaNac() {
         return fechaNac;
@@ -123,6 +163,26 @@ public class Persona {
     public void setEdad(int edad) {
         this.edad = edad;
     }
+    
+    public String getHijos(){
+        return hijos;
+    }
+    
+    public void setHijos(String hijos){
+        this.hijos = hijos;
+    }
+    
+    public String getEstadoCivil(){
+        return estadoCivil;
+    }
+    
+    public void setEstadoCivil(String estadoCivil){
+        
+        this.estadoCivil = estadoCivil;
+        
+    }
+    
+    
 
     public String getEmpresa() {
         return empresa;
