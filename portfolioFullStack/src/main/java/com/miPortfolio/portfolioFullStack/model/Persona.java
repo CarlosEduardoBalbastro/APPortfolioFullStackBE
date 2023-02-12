@@ -114,7 +114,7 @@ public class Persona {
     
     
             public String getlugarResidencia() {
-        return lugarNacimiento;
+        return lugarResidencia;
     }
 
     public void setlugarResidencia(String lugarResidencia) {
