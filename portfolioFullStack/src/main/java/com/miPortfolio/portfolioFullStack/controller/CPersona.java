@@ -56,6 +56,7 @@ public class CPersona {
                                @RequestParam ("correo") String nuevoCorreo,
                                @RequestParam ("sobreMi") String nuevoSobreMi,
                                @RequestParam ("imagen") String nuevoImagen,
+                               @RequestParam ("cv") String nuevoCv,
                                @RequestParam ("edad") int nuevoEdad,
                                @RequestParam ("hijos") String nuevoHijos,
                                @RequestParam ("estadoCivil") String nuevoEstadoCivil,
@@ -75,6 +76,7 @@ public class CPersona {
         perso.setCorreo(nuevoCorreo);
         perso.setSobreMi(nuevoSobreMi);
         perso.setImagen(nuevoImagen);
+        perso.setCV(nuevoCv);
         perso.setEdad(nuevoEdad);
         perso.setHijos(nuevoHijos);
         perso.setEstadoCivil(nuevoEstadoCivil);

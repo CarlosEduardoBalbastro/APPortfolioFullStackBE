@@ -31,7 +31,12 @@ public class Persona {
     
     @Lob
     private String sobreMi;
+    
+   @Lob
     private String imagen;
+    
+   @Lob
+    private String cv;
     private int edad;
     private String hijos;
     private String estadoCivil;
@@ -42,7 +47,7 @@ public class Persona {
     public Persona() {
     }
 
-    public Persona(int id, String nombre, String apellido, String domicilio, String nacionalidad, String lugarNacimiento, String lugarResidencia, String fechaNac, String correo, String sobreMi, String imagen, int edad, String hijos, String estadoCivil, String empresa, String ocupacion, String area) {
+    public Persona(int id, String nombre, String apellido, String domicilio, String nacionalidad, String lugarNacimiento, String lugarResidencia, String fechaNac, String correo, String sobreMi, String imagen, String cv, int edad, String hijos, String estadoCivil, String empresa, String ocupacion, String area) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -54,6 +59,7 @@ public class Persona {
         this.correo = correo;
         this.sobreMi = sobreMi;
         this.imagen = imagen;
+        this.cv = cv;
         this.edad = edad;
         this.hijos = hijos;
         this.estadoCivil = estadoCivil;
@@ -61,6 +67,8 @@ public class Persona {
         this.ocupacion = ocupacion;
         this.area = area;
     }
+
+ 
 
 
 
@@ -155,6 +163,16 @@ public class Persona {
     public void setImagen(String imagen) {
         this.imagen = imagen;
     }
+    
+    
+    public String getCV(){
+        return cv;
+    }
+    
+    public void setCV(String cv){
+        this.cv = cv;
+    }
+    
 
     public int getEdad() {
         return edad;

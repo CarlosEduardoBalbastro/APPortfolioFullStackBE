@@ -20,7 +20,9 @@ public class Habilidades {
     
     private String tecnologia;
     private String imagen;
+   
     private int porcentaje;
+    
     private String color;
 
     public Habilidades() {
