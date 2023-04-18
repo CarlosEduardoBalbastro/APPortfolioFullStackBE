@@ -6,6 +6,7 @@ import com.miPortfolio.portfolioFullStack.service.SPersona;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,7 +16,11 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+
+
+//julia no tiene CrossOrigin
 
 @RestController
 @RequestMapping("/personas")//localhost:4200
@@ -26,24 +31,28 @@ public class CPersona {
     SPersona persoServ;
     
     @GetMapping ("/traer")
+    @ResponseBody
     public List<Persona> getPersonas(){
         return persoServ.getPersonas();
     }
     
-    
+   // @PreAuthorize("hasRole('ADMIN')")
     @PostMapping ("/crear")
     public String createPersonas(@RequestBody Persona perso){
         persoServ.savePersona(perso);
         return "LA persona fue creada correctamente";
     }
     
-    
+    //@PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping ("/borrar/{id}")
     public String detelePersona(@PathVariable int id){
         persoServ.deletePersona(id);
         return "La persona fue eliminada correctamente";
     }
     
+    
+    
+    //@PreAuthorize("hasRole('ADMIN')")
     @PutMapping ("/editar/{id}")
     public Persona editPersona (@PathVariable int id,
                                @RequestParam ("nombre") String nuevoNombre,
@@ -89,5 +98,14 @@ public class CPersona {
         
         return perso;
     }
+    
+    //Juli tiene metodo editar asi
+//       @PreAuthorize("hasRole('ADMIN')")
+//    @PutMapping("/editar")
+//    public String editarPersona (@RequestBody Persona pers){
+//        persoServ.editarPersona(pers);
+//        return "La persona fue editada.";
+//    }
+    
     
 }

@@ -1,7 +1,8 @@
 
 package com.miPortfolio.portfolioFullStack.security.repository;
 
-import com.miPortfolio.portfolioFullStack.model.Usuario;
+
+import com.miPortfolio.portfolioFullStack.security.entity.Usuario;
 import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

@@ -1,7 +1,8 @@
 
 package com.miPortfolio.portfolioFullStack.security.service;
 
-import com.miPortfolio.portfolioFullStack.model.Usuario;
+
+import com.miPortfolio.portfolioFullStack.security.entity.Usuario;
 import com.miPortfolio.portfolioFullStack.security.entity.UsuarioPrincipal;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -23,9 +24,10 @@ public class UserDetailslmpl implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String nombreUsuario) throws UsernameNotFoundException {
       
-        Usuario user= usuarioService.getByNombreUsuario(nombreUsuario).get();
+        Usuario usuario = usuarioService.getByNombreUsuario(nombreUsuario).get();
         
-        return UsuarioPrincipal.build(user);
+        return UsuarioPrincipal.build(usuario);
+        
         
     }
     

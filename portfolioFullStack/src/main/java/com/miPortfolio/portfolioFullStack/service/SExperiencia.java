@@ -49,5 +49,10 @@ public class SExperiencia  {
     }
     
     
+    public void editarExperiencia(Experiencias exp){
+        repoExpe.save(exp);
+    }
+    
+    
     
 }

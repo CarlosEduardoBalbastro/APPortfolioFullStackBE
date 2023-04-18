@@ -5,6 +5,7 @@ import com.miPortfolio.portfolioFullStack.model.Habilidades;
 import com.miPortfolio.portfolioFullStack.service.SHabilidades;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 
@@ -30,7 +32,7 @@ SHabilidades servHab;
 
 
 @GetMapping ("/traer")
-
+@ResponseBody
 public List<Habilidades> traerHabilidades(){
     return servHab.traerHablidades();
 }
@@ -38,6 +40,7 @@ public List<Habilidades> traerHabilidades(){
 
 
 @PostMapping ("/crear")
+//@PreAuthorize("hasRole('ADMIN')")
 public String crearHabilidades(@RequestBody Habilidades hab){
     servHab.crearHabilidad(hab);
     return "La Habilidad fue creada con exito";
@@ -45,14 +48,16 @@ public String crearHabilidades(@RequestBody Habilidades hab){
 
 
 
-@DeleteMapping ("borrar/{id}")
+//@DeleteMapping ("borrar/{id}")
+@PreAuthorize("hasRole('ADMIN')")
 public String borrarHabilidad(@PathVariable int id){
     servHab.borrarHabilidad(id);
     return "La habilidad fue borrada con exito";
 }
 
 
-@PutMapping ("editar/{id}")
+//@PutMapping ("editar/{id}")
+@PreAuthorize("hasRole('ADMIN')")
 public Habilidades editarHabilidades(@PathVariable int id,
                                      @RequestParam ("tecnologia") String nvaTecnologia,
                                      @RequestParam ("imagen") String nvaImagen,
@@ -75,6 +80,13 @@ public Habilidades editarHabilidades(@PathVariable int id,
     
 }
 
+
+   @PreAuthorize("hasRole('ADMIN')")
+    @PutMapping("/editar")
+    public String editarHabilidad(@RequestBody Habilidades hab){
+        servHab.editarHabilidad(hab);
+        return "El idioma fue editado.";
+    }
 
 
     

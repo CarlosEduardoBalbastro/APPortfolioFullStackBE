@@ -8,6 +8,7 @@ import com.miPortfolio.portfolioFullStack.model.Formacion;
 import com.miPortfolio.portfolioFullStack.service.SFormacion;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,9 +18,11 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 
+//el controlador de juli no tiene anotation crossorigin
 
 @RestController
 @RequestMapping ("/formacion")
@@ -30,11 +33,12 @@ public class CFormacion {
 SFormacion servForm;
 
 @GetMapping ("/traer")
+@ResponseBody
 public List<Formacion> traerFormacion(){
     return servForm.traerFormacion();
 }
 
-
+//@PreAuthorize("hasRole('ADMIN')")
 @PostMapping ("/crear")
 public String crearFormacion(@RequestBody Formacion form){
     servForm.crearFormacion(form);
@@ -42,7 +46,7 @@ public String crearFormacion(@RequestBody Formacion form){
 }
 
 
-
+//@PreAuthorize("hasRole('ADMIN')")
 @DeleteMapping ("borrar/{id}")
 public String borrarFormacion(@PathVariable int id){
     
@@ -51,7 +55,7 @@ public String borrarFormacion(@PathVariable int id){
     
 }
 
-
+//@PreAuthorize("hasRole('ADMIN')")
 @PutMapping ("editar/{id}")
 public Formacion editarFormacion(@PathVariable int id,
                                        @RequestParam ("institucion") String newInstitucion,
@@ -75,6 +79,13 @@ public Formacion editarFormacion(@PathVariable int id,
 }
 
 
+//metodo editar copiado de juli
+// @PreAuthorize("hasRole('ADMIN')")
+//    @PutMapping("/editar")
+//    public String editarEstudio (@RequestBody Estudio estu){
+//        estuServ.editarEstudio(estu);
+//        return "El estudio fue editado.";
+//    }
 
     
 }

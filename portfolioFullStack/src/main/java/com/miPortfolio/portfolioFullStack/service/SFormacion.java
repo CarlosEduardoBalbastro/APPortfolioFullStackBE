@@ -41,5 +41,7 @@ public class SFormacion {
     }
     
     
-    
+    public void editarFormacion(Formacion form){
+        repoForm.save(form);
+    }
 }

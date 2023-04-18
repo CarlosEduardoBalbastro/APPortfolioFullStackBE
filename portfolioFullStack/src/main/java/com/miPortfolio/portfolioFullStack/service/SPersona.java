@@ -45,4 +45,9 @@ public class SPersona implements IPersonaService {
     }
     
     
+    public void ediarPersona(Persona perso){
+        personRepository.save(perso);
+    }
+    
+    
 }
