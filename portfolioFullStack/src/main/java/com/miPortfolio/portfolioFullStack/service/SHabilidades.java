@@ -44,4 +44,10 @@ public class SHabilidades {
         return hab ;
     }
     
+    
+    public void editarHabilidad(Habilidades hab){
+        repoHabilidades.save(hab);
+                
+    }
+    
 }

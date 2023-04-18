@@ -5,6 +5,7 @@ import com.miPortfolio.portfolioFullStack.model.Idioma;
 import com.miPortfolio.portfolioFullStack.service.SIdioma;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 
@@ -26,11 +28,13 @@ public class CIdioma {
     SIdioma idiomaServ;
     
     @GetMapping ("/traer")
+    @ResponseBody
     public List<Idioma>  getIdioma(){
         return idiomaServ.getIdioma();
     }
     
     
+    //@PreAuthorize("hasRole('ADMIN')")
     @PostMapping ("/crear")
     public String createIdioma(@RequestBody Idioma idiom){
         idiomaServ.createIdioma(idiom);
@@ -38,7 +42,7 @@ public class CIdioma {
     }
     
     
-    
+    //@PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping ("/borrar/{id}")
     public String deleteIdioma(@PathVariable int id){
         
@@ -47,7 +51,7 @@ public class CIdioma {
         return "El idioma fue eliminado";
     }
     
-    
+    //@PreAuthorize("hasRole('ADMIN')")
     @PutMapping ("/editar/{id}")
     public Idioma editIdioma(@PathVariable int id,
                             @RequestParam ("lengua") String nvaLengua,
@@ -64,6 +68,15 @@ public class CIdioma {
         return idiom;
         
     }
+    
+    
+    //Metodo editar Juli
+//       @PreAuthorize("hasRole('ADMIN')")
+//    @PutMapping("/editar")
+//    public String editarIdioma (@RequestBody Idioma idio){
+//        idioServ.editarIdioma(idio);
+//        return "El idioma fue editado.";
+//    }
     
     
     

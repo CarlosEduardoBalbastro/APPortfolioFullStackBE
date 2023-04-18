@@ -56,5 +56,10 @@ public class SIdioma {
     }
     
     
+    public void editarIdioma(Idioma idiom){
+        repoIdioma.save(idiom);
+    }
+    
+    
     
 }

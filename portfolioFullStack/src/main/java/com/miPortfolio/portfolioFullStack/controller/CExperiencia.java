@@ -5,6 +5,7 @@ import com.miPortfolio.portfolioFullStack.model.Experiencias;
 import com.miPortfolio.portfolioFullStack.service.SExperiencia;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,7 +15,12 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+
+
+
+//el controlador de Juli no tiene crossorigin
 
 @RestController
 @RequestMapping ("/experiencias") 
@@ -27,13 +33,14 @@ public class CExperiencia {
 SExperiencia expServ;
 
 @GetMapping ("/traer")
+@ResponseBody
 public List<Experiencias> getExperiencia(){
     return expServ.getExperiencia();
 }
 
 
 
-
+//@PreAuthorize("hasRole('ADMIN')")
 @PostMapping ("/crear")
 public String createExperiencia(@RequestBody Experiencias exp){
     
@@ -43,7 +50,7 @@ public String createExperiencia(@RequestBody Experiencias exp){
 }
 
 
-
+//@PreAuthorize("hasRole('ADMIN')")
 @DeleteMapping ("/borrar/{id}")
 public String deleteExperiencia(@PathVariable int id){
     
@@ -53,6 +60,15 @@ public String deleteExperiencia(@PathVariable int id){
 }
 
 
+//Juli tiene un metodo distitnto para editar
+//  @PreAuthorize("hasRole('ADMIN')")
+//    @PutMapping("/editar/{id}")
+//    public void editExperiencia (@PathVariable ("id") int id, Experiencia expe){
+//        expeServ.editarExperiencia(expe);
+//    }
+
+
+//@PreAuthorize("hasRole('ADMIN')")
 @PutMapping ("/editar/{id}")
 public Experiencias editExperiencia(@PathVariable int id,
                                     @RequestParam ("empresa") String nueEmpresa,

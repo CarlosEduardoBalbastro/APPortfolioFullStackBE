@@ -15,9 +15,8 @@ import org.springframework.security.core.userdetails.UserDetails;
  */
 public class UsuarioPrincipal implements UserDetails {
 
-    public static UserDetails build(com.miPortfolio.portfolioFullStack.model.Usuario usuario) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+
+ 
     
     private String nombre;
     private String nombreUsuario;
@@ -40,6 +39,7 @@ public class UsuarioPrincipal implements UserDetails {
     
     
     public static UsuarioPrincipal build(Usuario usuario){
+        
         List <GrantedAuthority> authorities = usuario.getRoles().stream().map(rol -> new SimpleGrantedAuthority(rol.getRolNombre().name())).collect(Collectors.toList());
         
         

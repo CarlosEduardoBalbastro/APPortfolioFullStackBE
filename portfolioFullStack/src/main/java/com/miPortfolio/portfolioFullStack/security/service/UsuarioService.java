@@ -1,7 +1,8 @@
 
 package com.miPortfolio.portfolioFullStack.security.service;
 
-import com.miPortfolio.portfolioFullStack.model.Usuario;
+
+import com.miPortfolio.portfolioFullStack.security.entity.Usuario;
 import com.miPortfolio.portfolioFullStack.security.repository.IUsuarioRepository;
 import jakarta.transaction.Transactional;
 import java.util.Optional;
@@ -33,7 +34,7 @@ public class UsuarioService {
         return iUsuarioRepository.existsByEmail(email);
     }
     
-    public void save (Usuario usuario){
+    public void save(Usuario usuario){
         iUsuarioRepository.save(usuario);
     }
     
