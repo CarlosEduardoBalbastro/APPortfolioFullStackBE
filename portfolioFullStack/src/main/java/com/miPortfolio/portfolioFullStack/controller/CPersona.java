@@ -36,14 +36,14 @@ public class CPersona {
         return persoServ.getPersonas();
     }
     
-   // @PreAuthorize("hasRole('ADMIN')")
+   @PreAuthorize("hasRole('ADMIN')")
     @PostMapping ("/crear")
     public String createPersonas(@RequestBody Persona perso){
         persoServ.savePersona(perso);
         return "LA persona fue creada correctamente";
     }
     
-    //@PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping ("/borrar/{id}")
     public String detelePersona(@PathVariable int id){
         persoServ.deletePersona(id);
@@ -52,7 +52,7 @@ public class CPersona {
     
     
     
-    //@PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping ("/editar/{id}")
     public Persona editPersona (@PathVariable int id,
                                @RequestParam ("nombre") String nuevoNombre,
@@ -79,13 +79,13 @@ public class CPersona {
         perso.setApellido(nuevoApellido);
         perso.setDomicilio(nuevoDomicilio);
         perso.setNacionalidad(nuevoNacionalidad);
-        perso.setlugarNacimiento(nuevoLugarNacimiento);
-        perso.setlugarResidencia(nuevoLugarResidencia);
+        perso.setLugarNacimiento(nuevoLugarNacimiento);
+        perso.setLugarResidencia(nuevoLugarResidencia);
         perso.setFechaNac(nuevoFechaNac);
         perso.setCorreo(nuevoCorreo);
         perso.setSobreMi(nuevoSobreMi);
         perso.setImagen(nuevoImagen);
-        perso.setCV(nuevoCv);
+        perso.setCv(nuevoCv);
         perso.setEdad(nuevoEdad);
         perso.setHijos(nuevoHijos);
         perso.setEstadoCivil(nuevoEstadoCivil);
@@ -100,12 +100,12 @@ public class CPersona {
     }
     
     //Juli tiene metodo editar asi
-//       @PreAuthorize("hasRole('ADMIN')")
-//    @PutMapping("/editar")
-//    public String editarPersona (@RequestBody Persona pers){
-//        persoServ.editarPersona(pers);
-//        return "La persona fue editada.";
-//    }
+      @PreAuthorize("hasRole('ADMIN')")
+   @PutMapping("/editar")
+   public String editarPersona (@RequestBody Persona pers){
+       persoServ.ediarPersona(pers);
+       return "La persona fue editada.";
+   }
     
     
 }

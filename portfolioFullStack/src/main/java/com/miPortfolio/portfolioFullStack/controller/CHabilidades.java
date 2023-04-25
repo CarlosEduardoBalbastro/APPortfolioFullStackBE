@@ -24,7 +24,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping ("/habilidades")
 @CrossOrigin ( origins = "http://localhost:4200")
-
 public class CHabilidades {
 
 @Autowired
@@ -40,7 +39,7 @@ public List<Habilidades> traerHabilidades(){
 
 
 @PostMapping ("/crear")
-//@PreAuthorize("hasRole('ADMIN')")
+@PreAuthorize("hasRole('ADMIN')")
 public String crearHabilidades(@RequestBody Habilidades hab){
     servHab.crearHabilidad(hab);
     return "La Habilidad fue creada con exito";
@@ -48,7 +47,7 @@ public String crearHabilidades(@RequestBody Habilidades hab){
 
 
 
-//@DeleteMapping ("borrar/{id}")
+@DeleteMapping ("borrar/{id}")
 @PreAuthorize("hasRole('ADMIN')")
 public String borrarHabilidad(@PathVariable int id){
     servHab.borrarHabilidad(id);
@@ -56,7 +55,7 @@ public String borrarHabilidad(@PathVariable int id){
 }
 
 
-//@PutMapping ("editar/{id}")
+@PutMapping ("editar/{id}")
 @PreAuthorize("hasRole('ADMIN')")
 public Habilidades editarHabilidades(@PathVariable int id,
                                      @RequestParam ("tecnologia") String nvaTecnologia,
@@ -85,7 +84,7 @@ public Habilidades editarHabilidades(@PathVariable int id,
     @PutMapping("/editar")
     public String editarHabilidad(@RequestBody Habilidades hab){
         servHab.editarHabilidad(hab);
-        return "El idioma fue editado.";
+        return "Habilidad  fue editada";
     }
 
 

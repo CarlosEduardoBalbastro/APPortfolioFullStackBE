@@ -12,7 +12,7 @@ import org.springframework.security.config.annotation.authentication.configurati
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration;
+//import org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -38,7 +38,7 @@ public class MainSecurity {
     JwtEntryPoint jwtEntryPoint;
     
     
-      @Bean
+    @Bean
     public JwtTokenFilter jwtTokenFilter() {
         return new JwtTokenFilter();
     }
@@ -48,6 +48,11 @@ public class MainSecurity {
         return new BCryptPasswordEncoder();
     }
 
+    
+    
+    
+    
+    
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration)
             throws Exception {

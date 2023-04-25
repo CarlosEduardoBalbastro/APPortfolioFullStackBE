@@ -34,7 +34,7 @@ public class CIdioma {
     }
     
     
-    //@PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping ("/crear")
     public String createIdioma(@RequestBody Idioma idiom){
         idiomaServ.createIdioma(idiom);
@@ -42,7 +42,7 @@ public class CIdioma {
     }
     
     
-    //@PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping ("/borrar/{id}")
     public String deleteIdioma(@PathVariable int id){
         
@@ -51,7 +51,7 @@ public class CIdioma {
         return "El idioma fue eliminado";
     }
     
-    //@PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping ("/editar/{id}")
     public Idioma editIdioma(@PathVariable int id,
                             @RequestParam ("lengua") String nvaLengua,
@@ -71,12 +71,12 @@ public class CIdioma {
     
     
     //Metodo editar Juli
-//       @PreAuthorize("hasRole('ADMIN')")
-//    @PutMapping("/editar")
-//    public String editarIdioma (@RequestBody Idioma idio){
-//        idioServ.editarIdioma(idio);
-//        return "El idioma fue editado.";
-//    }
+      @PreAuthorize("hasRole('ADMIN')")
+   @PutMapping("/editar")
+    public String editarIdioma (@RequestBody Idioma idiom){
+       idiomaServ.editarIdioma(idiom);
+        return "El idioma fue editado.";
+    }
     
     
     

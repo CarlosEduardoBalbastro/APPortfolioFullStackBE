@@ -25,7 +25,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping ("/experiencias") 
 @CrossOrigin ( origins = "http://localhost:4200" )
-
 public class CExperiencia {
     
 
@@ -40,7 +39,7 @@ public List<Experiencias> getExperiencia(){
 
 
 
-//@PreAuthorize("hasRole('ADMIN')")
+@PreAuthorize("hasRole('ADMIN')")
 @PostMapping ("/crear")
 public String createExperiencia(@RequestBody Experiencias exp){
     
@@ -50,7 +49,7 @@ public String createExperiencia(@RequestBody Experiencias exp){
 }
 
 
-//@PreAuthorize("hasRole('ADMIN')")
+@PreAuthorize("hasRole('ADMIN')")
 @DeleteMapping ("/borrar/{id}")
 public String deleteExperiencia(@PathVariable int id){
     
@@ -61,14 +60,15 @@ public String deleteExperiencia(@PathVariable int id){
 
 
 //Juli tiene un metodo distitnto para editar
-//  @PreAuthorize("hasRole('ADMIN')")
-//    @PutMapping("/editar/{id}")
-//    public void editExperiencia (@PathVariable ("id") int id, Experiencia expe){
-//        expeServ.editarExperiencia(expe);
-//    }
+   @PreAuthorize("hasRole('ADMIN')")
+    @PutMapping("/editar")
+    public String editarExperiencia (@RequestBody Experiencias expe){
+        expServ.editarExperiencia(expe);
+        return "La experiencia fue editada.";
+    }
 
 
-//@PreAuthorize("hasRole('ADMIN')")
+@PreAuthorize("hasRole('ADMIN')")
 @PutMapping ("/editar/{id}")
 public Experiencias editExperiencia(@PathVariable int id,
                                     @RequestParam ("empresa") String nueEmpresa,
