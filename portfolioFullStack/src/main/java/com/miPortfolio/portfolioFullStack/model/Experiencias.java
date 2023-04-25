@@ -18,7 +18,7 @@ public class Experiencias {
     
     @Id
     @GeneratedValue (strategy = GenerationType.AUTO)
-    private Long id;
+    private int id;
     
     private String empresa;
     private boolean estrabajoactual;
@@ -34,7 +34,7 @@ public class Experiencias {
     public Experiencias() {
     }
 
-    public Experiencias(Long id, String empresa, boolean estrabajoactual, String inicio, String fin, String descripcion, String direccion, String imagen, String stackusado) {
+    public Experiencias(int id, String empresa, boolean estrabajoactual, String inicio, String fin, String descripcion, String direccion, String imagen, String stackusado) {
         this.id = id;
         this.empresa = empresa;
         this.estrabajoactual = estrabajoactual;
@@ -46,11 +46,11 @@ public class Experiencias {
         this.stackusado = stackusado;
     }
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 

@@ -38,7 +38,7 @@ public List<Formacion> traerFormacion(){
     return servForm.traerFormacion();
 }
 
-//@PreAuthorize("hasRole('ADMIN')")
+@PreAuthorize("hasRole('ADMIN')")
 @PostMapping ("/crear")
 public String crearFormacion(@RequestBody Formacion form){
     servForm.crearFormacion(form);
@@ -46,7 +46,7 @@ public String crearFormacion(@RequestBody Formacion form){
 }
 
 
-//@PreAuthorize("hasRole('ADMIN')")
+@PreAuthorize("hasRole('ADMIN')")
 @DeleteMapping ("borrar/{id}")
 public String borrarFormacion(@PathVariable int id){
     
@@ -55,7 +55,7 @@ public String borrarFormacion(@PathVariable int id){
     
 }
 
-//@PreAuthorize("hasRole('ADMIN')")
+@PreAuthorize("hasRole('ADMIN')")
 @PutMapping ("editar/{id}")
 public Formacion editarFormacion(@PathVariable int id,
                                        @RequestParam ("institucion") String newInstitucion,
@@ -80,12 +80,12 @@ public Formacion editarFormacion(@PathVariable int id,
 
 
 //metodo editar copiado de juli
-// @PreAuthorize("hasRole('ADMIN')")
-//    @PutMapping("/editar")
-//    public String editarEstudio (@RequestBody Estudio estu){
-//        estuServ.editarEstudio(estu);
-//        return "El estudio fue editado.";
-//    }
+ @PreAuthorize("hasRole('ADMIN')")
+    @PutMapping("/editar")
+    public String editarEstudio (@RequestBody Formacion form){
+        servForm.editarFormacion(form);
+        return "El estudio fue editado.";
+    }
 
     
 }

@@ -14,17 +14,17 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupp
 public class WebConfig extends WebMvcConfigurationSupport{
     
     
-//      @Override
-//    public void addCorsMappings(CorsRegistry registry) {
-//        registry.addMapping("/**")
-//                .allowedOrigins("")
-//                .allowedOriginPatterns("*")
-//                .allowedMethods("GET", "POST", "PUT", "DELETE", "HEAD")
-//                .allowCredentials(true)
-//                .allowedHeaders("*")
-//                        .exposedHeaders("Access-Control-Allow-Origin", "Access-Control-Allow-Methods", "Access-Control-Allow-Headers", "Access-Control-Max-Age", "Access-Control-Request-Headers", "Access-Control-Request-Method")
-//                        //.allowCredentials(false)
-//                        .maxAge(3600);
-//    }
+     @Override
+    public void addCorsMappings(CorsRegistry registry) {
+        registry.addMapping("/**")
+              .allowedOrigins("http://localhost:4200")
+               .allowedOriginPatterns("*")
+               .allowedMethods("GET", "POST", "PUT", "DELETE", "HEAD")
+               .allowCredentials(true)
+               .allowedHeaders("*")
+                       .exposedHeaders("Access-Control-Allow-Origin", "Access-Control-Allow-Methods", "Access-Control-Allow-Headers", "Access-Control-Max-Age", "Access-Control-Request-Headers", "Access-Control-Request-Method")
+                        .allowCredentials(false)
+                       .maxAge(3600);
+    }
     
 }

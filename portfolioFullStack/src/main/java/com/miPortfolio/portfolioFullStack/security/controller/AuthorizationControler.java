@@ -9,6 +9,7 @@ import com.miPortfolio.portfolioFullStack.security.enums.RolName;
 import com.miPortfolio.portfolioFullStack.security.jwt.JwtProvider;
 import com.miPortfolio.portfolioFullStack.security.service.RolService;
 import com.miPortfolio.portfolioFullStack.security.service.UsuarioService;
+import jakarta.validation.Valid;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -22,7 +23,8 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.annotation.Validated;
+//import org.springframework.validation.annotation.Validated;
+//import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -55,7 +57,7 @@ public class AuthorizationControler {
     //tenia anotatio @Valid al principio pero no encontre la libreria asi que borre
     
     @PostMapping ("/nuevo")
-    public ResponseEntity<?> nuevo(@RequestBody NewUsuario nuevoUsuario, BindingResult bindingResult) {
+    public ResponseEntity<?> nuevo(@Valid @RequestBody NewUsuario nuevoUsuario, BindingResult bindingResult) {
 
         if (bindingResult.hasErrors()) {
             return new ResponseEntity(new Message("Campos u Email erroneos"), HttpStatus.BAD_REQUEST);
@@ -75,12 +77,12 @@ public class AuthorizationControler {
         roles.add(rolService.getByRolNombre(RolName.ROLE_USER).get());
 
         if (nuevoUsuario.getRoles().contains("admin")) {
-            roles.add(rolService.getByRolNombre(RolName.ROLE_USER).get());
+            roles.add(rolService.getByRolNombre(RolName.ROLE_ADMIN).get());
         }
 
        usuario.setRoles(roles);
        
-       //Me da error en el parametro por eso comente para poder continuar
+      
        usuarioService.save(usuario);
        
 
@@ -90,7 +92,7 @@ public class AuthorizationControler {
 
     //tenia anotatio @Valid al principio pero no encontre la libreria asi que borre
     @PostMapping("/login")
-    public ResponseEntity<JwtDto> login(@Validated @RequestBody LoginUsuario loginUsuario, BindingResult bindingResult) {
+    public ResponseEntity<JwtDto> login(@Valid @RequestBody LoginUsuario loginUsuario, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return new ResponseEntity(new Message("Campos mal puestos"), HttpStatus.BAD_REQUEST);
         }

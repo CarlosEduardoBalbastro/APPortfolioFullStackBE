@@ -1,6 +1,8 @@
 
 package com.miPortfolio.portfolioFullStack.security.dto;
 
+import jakarta.validation.constraints.NotBlank;
+
 
 
 /**
@@ -10,9 +12,9 @@ package com.miPortfolio.portfolioFullStack.security.dto;
 public class LoginUsuario {
     
     
-    //@NotBlank
+    @NotBlank
     private String nombreUsuario;
-    //@NotBlank
+    @NotBlank
     private String password;
 
     public String getNombreUsuario() {
