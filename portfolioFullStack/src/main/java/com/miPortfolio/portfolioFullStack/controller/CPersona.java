@@ -36,14 +36,14 @@ public class CPersona {
         return persoServ.getPersonas();
     }
     
-   @PreAuthorize("hasRole('ADMIN')")
+   //@PreAuthorize("hasRole('ADMIN')")
     @PostMapping ("/crear")
     public String createPersonas(@RequestBody Persona perso){
         persoServ.savePersona(perso);
         return "LA persona fue creada correctamente";
     }
     
-    @PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping ("/borrar/{id}")
     public String detelePersona(@PathVariable int id){
         persoServ.deletePersona(id);
@@ -52,7 +52,7 @@ public class CPersona {
     
     
     
-    @PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('ADMIN')")
     @PutMapping ("/editar/{id}")
     public Persona editPersona (@PathVariable int id,
                                @RequestParam ("nombre") String nuevoNombre,
@@ -100,7 +100,7 @@ public class CPersona {
     }
     
     //Juli tiene metodo editar asi
-      @PreAuthorize("hasRole('ADMIN')")
+     // @PreAuthorize("hasRole('ADMIN')")
    @PutMapping("/editar")
    public String editarPersona (@RequestBody Persona pers){
        persoServ.ediarPersona(pers);

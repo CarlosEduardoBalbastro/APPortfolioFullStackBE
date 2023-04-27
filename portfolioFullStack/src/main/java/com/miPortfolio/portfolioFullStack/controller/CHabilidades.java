@@ -37,26 +37,23 @@ public List<Habilidades> traerHabilidades(){
 }
 
 
-
+//@PreAuthorize("hasRole('ADMIN')")
 @PostMapping ("/crear")
-@PreAuthorize("hasRole('ADMIN')")
 public String crearHabilidades(@RequestBody Habilidades hab){
     servHab.crearHabilidad(hab);
     return "La Habilidad fue creada con exito";
 }
 
 
-
+//@PreAuthorize("hasRole('ADMIN')")
 @DeleteMapping ("borrar/{id}")
-@PreAuthorize("hasRole('ADMIN')")
 public String borrarHabilidad(@PathVariable int id){
     servHab.borrarHabilidad(id);
     return "La habilidad fue borrada con exito";
 }
 
-
+//@PreAuthorize("hasRole('ADMIN')")
 @PutMapping ("editar/{id}")
-@PreAuthorize("hasRole('ADMIN')")
 public Habilidades editarHabilidades(@PathVariable int id,
                                      @RequestParam ("tecnologia") String nvaTecnologia,
                                      @RequestParam ("imagen") String nvaImagen,
@@ -80,7 +77,7 @@ public Habilidades editarHabilidades(@PathVariable int id,
 }
 
 
-   @PreAuthorize("hasRole('ADMIN')")
+  // @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/editar")
     public String editarHabilidad(@RequestBody Habilidades hab){
         servHab.editarHabilidad(hab);
