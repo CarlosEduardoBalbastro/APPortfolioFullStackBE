@@ -22,11 +22,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 
-//el controlador de juli no tiene anotation crossorigin
+
 
 @RestController
 @RequestMapping ("/formacion")
-//@CrossOrigin ( origins = "http://localhost:4200")
+@CrossOrigin ( origins = "https://portfolio-carlos-balbastro.web.app")
 public class CFormacion {
 
 @Autowired
