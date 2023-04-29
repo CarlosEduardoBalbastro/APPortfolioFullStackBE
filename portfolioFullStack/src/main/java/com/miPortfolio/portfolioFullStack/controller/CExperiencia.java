@@ -20,11 +20,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 
-//el controlador de Juli no tiene crossorigin
+
 
 @RestController
 @RequestMapping ("/experiencias") 
-//@CrossOrigin ( origins = "http://localhost:4200" )
+@CrossOrigin ( origins = "https://portfolio-carlos-balbastro.web.app" )
 public class CExperiencia {
     
 

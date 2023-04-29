@@ -24,7 +24,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.validation.BindingResult;
 //import org.springframework.validation.annotation.Validated;
-//import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -36,6 +36,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/auth")
+@CrossOrigin( origins = "https://portfolio-carlos-balbastro.web.app")
 public class AuthorizationControler {
 
     @Autowired
@@ -54,7 +55,7 @@ public class AuthorizationControler {
     JwtProvider jwtProvider;
 
     //metodo para crear ususario
-    //tenia anotatio @Valid al principio pero no encontre la libreria asi que borre
+    
     
     @PostMapping ("/nuevo")
     public ResponseEntity<?> nuevo(@Valid @RequestBody NewUsuario nuevoUsuario, BindingResult bindingResult) {
@@ -90,7 +91,7 @@ public class AuthorizationControler {
 
     }
 
-    //tenia anotatio @Valid al principio pero no encontre la libreria asi que borre
+  
     @PostMapping("/login")
     public ResponseEntity<JwtDto> login(@Valid @RequestBody LoginUsuario loginUsuario, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {

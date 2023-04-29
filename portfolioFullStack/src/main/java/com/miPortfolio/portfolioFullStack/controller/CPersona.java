@@ -20,11 +20,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 
-//julia no tiene CrossOrigin
+
 
 @RestController
 @RequestMapping("/personas")//localhost:4200
-//@CrossOrigin( origins = "http://localhost:4200")
+@CrossOrigin( origins = "https://portfolio-carlos-balbastro.web.app")
 public class CPersona {
     
     @Autowired
