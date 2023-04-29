@@ -17,7 +17,7 @@ public class WebConfig extends WebMvcConfigurationSupport{
      @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
-              .allowedOrigins("http://localhost:4200")
+              .allowedOrigins("https://portfolio-carlos-balbastro.web.app/")
                .allowedOriginPatterns("*")
                .allowedMethods("GET", "POST", "PUT", "DELETE", "HEAD")
                .allowCredentials(true)
