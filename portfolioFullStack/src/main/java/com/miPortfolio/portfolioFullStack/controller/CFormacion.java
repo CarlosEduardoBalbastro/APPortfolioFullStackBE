@@ -1,15 +1,12 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package com.miPortfolio.portfolioFullStack.controller;
 
 import com.miPortfolio.portfolioFullStack.model.Formacion;
 import com.miPortfolio.portfolioFullStack.service.SFormacion;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.CrossOrigin;
+//import org.springframework.security.access.prepost.PreAuthorize;
+//import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -26,7 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping ("/formacion")
-@CrossOrigin ( origins = "https://portfolio-carlos-balbastro.web.app")
+//@CrossOrigin ( origins = "https://portfolio-carlos-balbastro.web.app")
 public class CFormacion {
 
 @Autowired
